@@ -18,7 +18,7 @@
               <div class="todo-inner">
                 <div class="form-row">
                   <div class="col-8 mr-sm-2">
-                    <input type="text" class="form-control" placeholder="Enter your task" id="addtaskinput" />
+                    <input type="text" onblur="saveonblur()" class="form-control" placeholder="Enter your task" id="addtaskinput" />
                     <input type="hidden" id="saveindex">
                   </div>
                   <button type="button" class="btn btn-success mr-sm-2" id="addtaskbtn">
@@ -42,8 +42,8 @@
         </div>
       </section>
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">TODO LIST</a>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom ">
+        <a class="navbar-brand" >TODO LIST</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -51,16 +51,16 @@
         <div class="collapse navbar-collapse" id="navbarToggler">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#">ALL</a>
+              <a class="nav-link" onclick="showtask()">ALL</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">COMPLETED</a>
+                <a class="nav-link" onclick="taskCompleteShow()" >COMPLETED</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">UNCOMPLETED</a>
+                <a class="nav-link" onclick="uncompletedtaskshow()">UNCOMPLETED</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">counter:</a>
+                <a class="nav-link" >counter: <span class="counter"></span></a>
               </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
