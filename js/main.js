@@ -5,7 +5,7 @@ let savetaskbtn = document.getElementById("savetaskbtn");
 let deleteallbtn = document.getElementById("deleteallbtn");
 let addedtasklist = document.getElementById("addedtasklist");
 let counter=document.querySelector(".counter");
-showtask();
+taskCompleteshow();
 
 
 addtaskbtn.addEventListener("click", function(){
@@ -69,24 +69,31 @@ function taskCompleteshow(){
         let html = '';
         let addedtasklist = document.getElementById("addedtasklist");
         const counter=document.querySelector(".counter");
-        counter.textContent=taskObj.length;
-        let tr=createElement('tr');
-       
+     //   counter.textContent=taskObj.length;
+        let td=document.createElement('td');
+        let tdtext=document.createElement('td');
+        let tr=document.createElement('tr');
+     
         taskObj.forEach((item, index) => {
     
             if(item.completeStatus==true){
                          
-        let compb=createElement('button');
+                let texttb=document.createTextNode(item.task_name);
+        let compb=document.createElement('button');
         compb.classList.add('text-success');
+        compb.textContent='complete';
         compb.setAttribute('type', 'submit');
         compb.setAttribute('id', index);
-        compb.addEventListener("click", taskCompleteshow());
-        tr.appendChild(compb);
-            }
-           
-            
-        } );
-   addedtasklist.appendChild(tr); 
+        compb.addEventListener('click', taskCompleteshow);
+        tdtext.appendChild(texttb);
+        tr.appendChild(tdtext);
+        td.appendChild(compb);
+        tr.appendChild(td);
+          }
+             
+             
+        }  );
+  addedtasklist.appendChild(tr);
 }
 
 
